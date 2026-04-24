@@ -1,46 +1,117 @@
-
-/* GLOBAL FIX */
+/* GLOBAL */
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 /* BODY */
 body {
-    margin: 0 15px;
     font-family: 'Segoe UI', sans-serif;
     background: linear-gradient(120deg, #89f7fe, #66a6ff);
     color: white;
+    transition: 0.3s;
+}
+
+/*  DARK MODE */
+body.dark {
+    background: linear-gradient(120deg, #1e1e2f, #121212);
+    color: #f1f1f1;
 }
 
 /* NAVBAR */
-nav {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 20px;
+.navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    backdrop-filter: blur(12px);
+    background: rgba(102, 166, 255, 0.6);
+    z-index: 1000;
+    transition: 0.3s;
 }
 
-nav a {
-    margin: 10px 15px;
+body.dark .navbar {
+    background: rgba(20, 20, 30, 0.8);
+}
+
+/* NAV CONTAINER */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+/* LOGO TEXT */
+.logo-text {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* NAV LINKS */
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
     text-decoration: none;
     color: white;
     font-weight: 500;
+    position: relative;
 }
 
-/* LOGO */
-.logo {
-    display: block;
-    margin: 20px auto;
-    width: 120px;
-    max-width: 100%;
-    height: auto;
+/* HOVER EFFECT */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: white;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* MENU ICON */
+.menu-toggle {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+/* DARK MODE BUTTON */
+.dark-toggle {
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 10px;
 }
 
 /* HERO */
 .hero {
     text-align: center;
-    padding: 20px;
+    padding: 30px 20px;
+}
 
+.hero h1 {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.hero p {
+    opacity: 0.9;
+}
+
+/* LOGO IMAGE */
+.logo {
+    display: block;
+    margin: 20px auto;
+    width: 120px;
+    max-width: 100%;
 }
 
 /* CONTAINER */
@@ -48,7 +119,7 @@ nav a {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    gap: 15px;
     padding: 20px;
     max-width: 1100px;
     margin: auto;
@@ -59,11 +130,14 @@ nav a {
     background: rgba(255,255,255,0.2);
     backdrop-filter: blur(10px);
     padding: 25px;
-    width: 100%;
+    border-radius: 20px;
     flex: 1 1 250px;
     max-width: 300px;
-    border-radius: 20px;
     transition: 0.3s;
+}
+
+body.dark .card {
+    background: rgba(255,255,255,0.1);
 }
 
 .card:hover {
@@ -92,51 +166,54 @@ footer {
     padding: 20px;
 }
 
-/* MOBILE RESPONSIVENESS */
+/*MOBILE */
 @media (max-width: 768px) {
 
-    nav {
-        flex-direction:column;
-        justify-content: center;
+    .menu-toggle {
+        display: block;
     }
 
-    nav a {
-        margin: 8px;
-        font-size: 0.9rem;
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        background: rgba(102, 166, 255, 0.95);
+        flex-direction: column;
+        align-items: center;
+        display: none;
+        padding: 20px 0;
     }
 
-    .container {
+    body.dark .nav-links {
+        background: rgba(20, 20, 30, 0.95);
+    }
+
+    .nav-links a {
         padding: 10px;
+        width: 100%;
+        text-align: center;
     }
 
-    .card {
-        width: 90%;
-    }
-
-    .logo {
-        width: 30%;
+    .nav-links.active {
+        display: flex;
     }
 }
 
-        
- @media (min-width: 768px) {
+/*TABLET */
+@media (min-width: 768px) {
     .card {
         max-width: 320px;
     }
-
-    nav a {
-        font-size: 1rem;
-    }
 }
 
+/*DESKTOP */
 @media (min-width: 1024px) {
     .hero {
-        padding: 40px;
+        padding: 50px;
     }
 
     .container {
         gap: 20px;
     }
-
-
 }
