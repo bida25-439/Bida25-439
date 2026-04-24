@@ -1,104 +1,69 @@
 console.log("JavaScript is connected!"); 
-/* ============================================================
-   Script.js  —  Mental Health for Students
-   Handles: Navigation menu (hamburger) + Dark / Light mode
-   ============================================================ */
-
-/* ── 1. DOM references ────────────────────────────────────── */
-const hamburger   = document.getElementById('hamburger');      // hamburger button
-const navMenu     = document.getElementById('nav-menu');       // <ul> nav list
-const themeToggle = document.getElementById('theme-toggle');   // moon/sun button
-const body        = document.body;
-
-/* ── 2. Hamburger / mobile menu ───────────────────────────── */
-if (hamburger && navMenu) {
-  hamburger.addEventListener('click', () => {
-    const isOpen = navMenu.classList.toggle('open');
-    hamburger.setAttribute('aria-expanded', isOpen);
-    hamburger.innerHTML = isOpen ? '✕' : '☰';
-  });
-
-  // Close menu when a nav link is clicked (mobile UX)
-  navMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      navMenu.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', 'false');
-      hamburger.innerHTML = '☰';
+// 🌿 Smooth scrolling
+document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const section = document.querySelector(this.getAttribute('href'));
+        section.scrollIntoView({
+            behavior: 'smooth'
+        });
     });
-  });
-
-  // Close menu when clicking outside of it
-  document.addEventListener('click', e => {
-    if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
-      navMenu.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', 'false');
-      hamburger.innerHTML = '☰';
-    }
-  });
-}
-
-/* ── 3. Active nav link highlight ────────────────────────── */
-(function setActiveLink() {
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('#nav-menu a').forEach(link => {
-    const href = link.getAttribute('href');
-    if (href === currentPage) link.classList.add('active');
-  });
-})();
-
-/* ── 4. Dark / Light mode ─────────────────────────────────── */
-const THEME_KEY = 'mh-theme';   // localStorage key
-
-function applyTheme(theme) {
-  body.setAttribute('data-theme', theme);
-  localStorage.setItem(THEME_KEY, theme);
-
-  if (themeToggle) {
-    themeToggle.textContent      = theme === 'dark' ? '☀️' : '🌙';
-    themeToggle.setAttribute('aria-label',
-      theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
-  }
-}
-
-// Load saved preference; default to light
-const savedTheme = localStorage.getItem(THEME_KEY) ||
-  (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-applyTheme(savedTheme);
-
-if (themeToggle) {
-  themeToggle.addEventListener('click', () => {
-    const next = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    applyTheme(next);
-  });
-}
-
-/* ── 5. Smooth-scroll for anchor links ────────────────────── */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', e => {
-    const target = document.querySelector(anchor.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  });
 });
 
-/* ── 6. Scroll-spy: highlight nav link for visible section ── */
-(function initScrollSpy() {
-  const sections = document.querySelectorAll('section[id]');
-  if (!sections.length) return;
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      document.querySelectorAll('#nav-menu a').forEach(link => {
-        link.classList.toggle(
-          'active',
-          link.getAttribute('href') === '#' + entry.target.id
-        );
-      });
+// 🌿 Active nav link
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("nav a");
+
+window.addEventListener("scroll", () => {
+    let current = "";
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (scrollY >= sectionTop) {
+            current = section.getAttribute("id");
+        }
     });
-  }, { rootMargin: '-40% 0px -55% 0px' });
 
-  sections.forEach(s => observer.observe(s));
-})();
+    navLinks.forEach(link => {
+        link.style.opacity = "0.5";
+        if (link.getAttribute("href") === "#" + current) {
+            link.style.opacity = "1";
+        }
+    });
+});
+
+
+// 🌿 Form submission (feedback)
+const form = document.querySelector("form");
+
+if (form) {
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        alert("Thank you for your feedback!");
+        form.reset();
+    });
+}
+
+
+// 🌿 Card animation on scroll
+const cards = document.querySelectorAll(".card");
+
+window.addEventListener("scroll", () => {
+    cards.forEach(card => {
+        const position = card.getBoundingClientRect().top;
+        const screenHeight = window.innerHeight;
+
+        if (position < screenHeight - 50) {
+            card.style.transform = "translateY(0)";
+            card.style.opacity = "1";
+        }
+    });
+});
+
+// Initial hidden state
+cards.forEach(card => {
+    card.style.transform = "translateY(40px)";
+    card.style.opacity = "0";
+    card.style.transition = "0.5s ease";
+});
