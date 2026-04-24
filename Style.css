@@ -27,7 +27,7 @@ body.dark {
     backdrop-filter: blur(12px);
     background: rgba(102, 166, 255, 0.6);
     z-index: 1000;
-    transition: 0.3s;
+    transition: background-color 0.3s, color 0.3s; 
 }
 
 body.dark .navbar {
@@ -217,3 +217,23 @@ footer {
         gap: 20px;
     }
 }
+body.dark-mode {
+    background-color: #333333;
+    color: #f9f9f9;
+}
+body.dark-mode nav { background-color: #222222; }
+#theme-toggle { padding: 8px 16px; cursor: pointer; margin: 10px; }
+#typing-headline {
+    min-height: 80px;
+
+}
+.filter-btn {
+    padding: 8px 16px; margin: 5px;
+    border: 1px solid rgba(102, 166, 255, 0.95);
+    background: rgba(102, 166, 255, 0.6); color: white;
+    cursor: pointer; border-radius: 4px;
+}
+.filter-btn.active { background: rgba(102, 166, 255, 0.6); color: white; }
+.project-card { transition: all 0.3s; margin: 15px 0; padding: 15px;
+    border: 1px solid #ddd; border-radius: 8px; }
+.project-card.hidden { display: none; }

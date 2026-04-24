@@ -1,69 +1,82 @@
 console.log("JavaScript is connected!"); 
-// 🌿 Smooth scrolling
-document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const section = document.querySelector(this.getAttribute('href'));
-        section.scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
+const toggleButton = document.getElementById('theme-toggle');
+
+toggleButton.addEventListener('click', function() {
+    document.body.classList.toggle('dark-mode');
+    if (document.body.classList.contains('dark-mode')) {
+        toggleButton.textContent = 'Light Mode';
+    } else {
+        toggleButton.textContent = 'Dark Mode';
+    }
 });
 
+const texts = [
+    "Hi, I'm Your Peo Dejee!",
+    "I'm a Web Developer",
+    "I Build Cool Things",
+    "WELCOME TO MINDSPACE HUB!"
+];
 
-// 🌿 Active nav link
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll("nav a");
+let textIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+const typingElement = document.getElementById('typing-headline');
 
-window.addEventListener("scroll", () => {
-    let current = "";
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-        if (scrollY >= sectionTop) {
-            current = section.getAttribute("id");
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.style.opacity = "0.5";
-        if (link.getAttribute("href") === "#" + current) {
-            link.style.opacity = "1";
-        }
-    });
-});
-
-
-// 🌿 Form submission (feedback)
-const form = document.querySelector("form");
-
-if (form) {
-    form.addEventListener("submit", function(e) {
-        e.preventDefault();
-        alert("Thank you for your feedback!");
-        form.reset();
-    });
+function typeEffect() {
+    const currentText = texts[textIndex];
+    if (isDeleting) {
+        typingElement.textContent = currentText.substring(0, charIndex - 1);
+        charIndex--;
+    } else {
+        typingElement.textContent = currentText.substring(0, charIndex + 1);
+        charIndex++;
+    }
+    if (!isDeleting && charIndex === currentText.length) {
+        isDeleting = true;
+        setTimeout(typeEffect, 2000);
+        return;
+    }
+    if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        textIndex = (textIndex + 1) % texts.length;
+    }
+    const speed = isDeleting ? 50 : 100;
+    setTimeout(typeEffect, speed);
 }
 
+typeEffect();
+const backToTopButton = document.getElementById('back-to-top');
 
-// 🌿 Card animation on scroll
-const cards = document.querySelectorAll(".card");
-
-window.addEventListener("scroll", () => {
-    cards.forEach(card => {
-        const position = card.getBoundingClientRect().top;
-        const screenHeight = window.innerHeight;
-
-        if (position < screenHeight - 50) {
-            card.style.transform = "translateY(0)";
-            card.style.opacity = "1";
-        }
-    });
+window.addEventListener('scroll', function() {
+    if (window.scrollY > 300) {
+        backToTopButton.style.display = 'block';
+    } else {
+        backToTopButton.style.display = 'none';
+    }
 });
 
-// Initial hidden state
-cards.forEach(card => {
-    card.style.transform = "translateY(40px)";
-    card.style.opacity = "0";
-    card.style.transition = "0.5s ease";
+backToTopButton.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+const filterButtons = document.querySelectorAll('.filter-btn');
+const projects = document.querySelectorAll('.project-card');
+
+filterButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
+        const filterValue = this.getAttribute('data-filter');
+        projects.forEach(project => {
+            if (filterValue === 'all') {
+                project.classList.remove('hidden');
+            } else {
+                const categories = project.getAttribute('data-category');
+                if (categories.includes(filterValue)) {
+                    project.classList.remove('hidden');
+                } else {
+                    project.classList.add('hidden');
+                }
+            }
+        });
+    });
 });

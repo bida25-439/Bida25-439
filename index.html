@@ -9,8 +9,13 @@
 
 <body>
 <script src="Script.js"></script> 
-<div class="menu-btn">☰</div>
-<button class="dark-toggle">🌙</button>
+<div id="filter-buttons">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="html">HTML/CSS</button>
+        <button class="filter-btn" data-filter="bootstrap">Bootstrap</button>
+        <button class="filter-btn" data-filter="javascript">JavaScript</button>
+    </div>
+
 <nav>
 <a href="index.html">Home</a>
 <a href="About.html">About</a>
@@ -18,6 +23,7 @@
 <a href="StudyTips.html">Study Tips</a>
 <a href="Feedback.html">Feedback</a>
 <a href="Contact.html">Contact</a>
+<button id="theme-toggle"> Dark Mode</button>  
 </nav>
 
 <img src="Logo (2).png" class="logo">
@@ -32,8 +38,8 @@
 <div class="card"><h2>Explore</h2><p>Learn about mental health from resources,get study tips, and coping strategies.</p></div>
 <div class="card"><h2>Support</h2><p>Find help and guidance you need when facing challenges.</p></div>
 </div>
-
+ <article class="project-card" data-category="bootstrap"> 
 <footer>© Peo Dejee 2026 MindSpace Student Hub</footer>
-
+<button id="back-to-top" title="Go to top">&#8593;</button>  
 </body>
 </html>
