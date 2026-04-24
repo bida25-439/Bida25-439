@@ -8,14 +8,8 @@
 </head>
 
 <body>
-<script src="Script.js"></script> 
-<div id="filter-buttons">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="html">HTML/CSS</button>
-        <button class="filter-btn" data-filter="bootstrap">Bootstrap</button>
-        <button class="filter-btn" data-filter="javascript">JavaScript</button>
-    </div>
 
+<!-- MENU -->
 <nav>
 <a href="index.html">Home</a>
 <a href="About.html">About</a>
@@ -23,23 +17,45 @@
 <a href="StudyTips.html">Study Tips</a>
 <a href="Feedback.html">Feedback</a>
 <a href="Contact.html">Contact</a>
-<button id="theme-toggle"> Dark Mode</button>  
+<button id="theme-toggle">Dark Mode</button>  
 </nav>
 
+<!-- LOGO -->
 <img src="Logo (2).png" class="logo">
 
+<!-- HERO -->
 <div class="hero">
-<h1>MINDSPACE STUDENT HUB</h1>
+<h1 id="typing-headline">MINDSPACE STUDENT HUB</h1>
 <p>Welcome to Student Mental Health Awareness, where you are heard and understood</p>
 </div>
 
+<!-- CARDS -->
 <div class="container">
-<div class="card"><h2>Overview</h2><p>This wesite helps students Manage Mental Health.</p></div>
-<div class="card"><h2>Explore</h2><p>Learn about mental health from resources,get study tips, and coping strategies.</p></div>
+<div class="card"><h2>Overview</h2><p>This website helps students manage mental health.</p></div>
+<div class="card"><h2>Explore</h2><p>Learn about mental health from resources, get study tips, and coping strategies.</p></div>
 <div class="card"><h2>Support</h2><p>Find help and guidance you need when facing challenges.</p></div>
 </div>
- <article class="project-card" data-category="bootstrap"> 
+
+<!-- FILTER (FIXED) -->
+<div id="filter-buttons">
+<button class="filter-btn" data-filter="all">All</button>
+<button class="filter-btn" data-filter="bootstrap">Support</button>
+</div>
+
+<!-- PROJECT CARD (FIXED) -->
+<article class="project-card" data-category="bootstrap">
+<h3>Support Resources</h3>
+<p>Helpful student mental health content.</p>
+</article>
+
+<!-- BACK TO TOP -->
+<button id="back-to-top">↑</button>
+
+<!-- FOOTER -->
 <footer>© Peo Dejee 2026 MindSpace Student Hub</footer>
-<button id="back-to-top" title="Go to top">&#8593;</button>  
+
+<!-- ✅ JAVASCRIPT GOES HERE (MOVED DOWN) -->
+<script src="Script.js"></script>
+
 </body>
 </html>
