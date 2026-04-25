@@ -1,12 +1,13 @@
 console.log("JavaScript is connected!"); 
-// 🌗 DARK MODE TOGGLE
+//  DARK MODE TOGGLE
 const toggleButton = document.getElementById('theme-toggle');
 
 if (toggleButton) {
     toggleButton.addEventListener('click', function () {
-        document.body.classList.toggle('dark-mode');
+        // FIX: toggle once, then read the result — don't toggle twice
+        const isDark = document.body.classList.toggle('dark-mode');
 
-        if (document.body.classList.contains('dark-mode')) {
+        if (isDark) {
             toggleButton.textContent = 'Light Mode';
             localStorage.setItem('theme', 'dark');
         } else {
@@ -15,7 +16,7 @@ if (toggleButton) {
         }
     });
 
-    // 🔄 REMEMBER THEME
+    //  REMEMBER THEME ON PAGE LOAD
     if (localStorage.getItem('theme') === 'dark') {
         document.body.classList.add('dark-mode');
         toggleButton.textContent = 'Light Mode';
@@ -23,14 +24,13 @@ if (toggleButton) {
 }
 
 
-// ✍️ TYPING EFFECT
+//  TYPING EFFECT
 const typingElement = document.getElementById('typing-headline');
 
 if (typingElement) {
     const texts = [
-        "Hi, I'm Peo Dejee!",
         "Welcome to Mindspace Hub",
-        "Your Safe Space for Students",
+        "Your Safe Space ",
         "Grow. Heal. Thrive."
     ];
 
@@ -79,7 +79,7 @@ if (backToTopButton) {
 }
 
 
-// 🎯 FILTER PROJECTS / RESOURCES
+// FILTER PROJECTS / RESOURCES
 const filterButtons = document.querySelectorAll('.filter-btn');
 const projects = document.querySelectorAll('.project-card');
 
@@ -87,7 +87,7 @@ if (filterButtons.length > 0 && projects.length > 0) {
     filterButtons.forEach(button => {
         button.addEventListener('click', function () {
 
-            // active button style
+            // Update active button style
             filterButtons.forEach(btn => btn.classList.remove('active'));
             this.classList.add('active');
 
