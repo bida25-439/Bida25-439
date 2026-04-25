@@ -10,11 +10,11 @@ body {
     font-family: 'Segoe UI', sans-serif;
     background: linear-gradient(120deg, #89f7fe, #66a6ff);
     color: white;
-    transition: 0.3s;
+    transition: background 0.3s, color 0.3s;
 }
 
-/*  DARK MODE */
-body.dark {
+/* ✅ UNIFIED DARK MODE — one class for everything */
+body.dark-mode {
     background: linear-gradient(120deg, #1e1e2f, #121212);
     color: #f1f1f1;
 }
@@ -27,10 +27,10 @@ body.dark {
     backdrop-filter: blur(12px);
     background: rgba(102, 166, 255, 0.6);
     z-index: 1000;
-    transition: background-color 0.3s, color 0.3s; 
+    transition: background 0.3s, color 0.3s;
 }
 
-body.dark .navbar {
+body.dark-mode .navbar {
     background: rgba(20, 20, 30, 0.8);
 }
 
@@ -61,7 +61,7 @@ body.dark .navbar {
     position: relative;
 }
 
-/* HOVER EFFECT */
+/* HOVER UNDERLINE */
 .nav-links a::after {
     content: "";
     position: absolute;
@@ -127,7 +127,7 @@ body.dark .navbar {
 
 /* CARDS */
 .card {
-    background: rgba(255,255,255,0.2);
+    background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
     padding: 25px;
     border-radius: 20px;
@@ -136,8 +136,9 @@ body.dark .navbar {
     transition: 0.3s;
 }
 
-body.dark .card {
-    background: rgba(255,255,255,0.1);
+body.dark-mode .card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .card:hover {
@@ -153,6 +154,13 @@ input, textarea {
     border-radius: 10px;
 }
 
+body.dark-mode input,
+body.dark-mode textarea {
+    background: #2a2a3d;
+    color: #f1f1f1;
+    border: 1px solid #444;
+}
+
 button {
     padding: 10px;
     border: none;
@@ -166,7 +174,85 @@ footer {
     padding: 20px;
 }
 
-/*MOBILE */
+body.dark-mode footer {
+    background: rgba(20, 20, 30, 0.6);
+    color: #ccc;
+}
+
+/* THEME TOGGLE BUTTON */
+#theme-toggle {
+    padding: 8px 16px;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.2);
+    color: white;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+body.dark-mode #theme-toggle {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.2);
+    color: #f1f1f1;
+}
+
+/* TYPING HEADLINE */
+#typing-headline {
+    min-height: 80px;
+}
+
+/* FILTER BUTTONS */
+.filter-btn {
+    padding: 8px 16px;
+    margin: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    background: rgba(102, 166, 255, 0.5);
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: rgba(102, 166, 255, 0.9);
+    color: white;
+}
+
+body.dark-mode .filter-btn {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #f1f1f1;
+}
+
+body.dark-mode .filter-btn.active,
+body.dark-mode .filter-btn:hover {
+    background: rgba(100, 100, 200, 0.5);
+}
+
+/* PROJECT CARDS */
+.project-card {
+    transition: all 0.3s;
+    margin: 15px 0;
+    padding: 15px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 8px;
+    background: rgba(255,255,255,0.15);
+}
+
+body.dark-mode .project-card {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #f1f1f1;
+}
+
+.project-card.hidden {
+    display: none;
+}
+
+/* MOBILE */
 @media (max-width: 768px) {
 
     .menu-toggle {
@@ -185,7 +271,7 @@ footer {
         padding: 20px 0;
     }
 
-    body.dark .nav-links {
+    body.dark-mode .nav-links {
         background: rgba(20, 20, 30, 0.95);
     }
 
@@ -200,14 +286,14 @@ footer {
     }
 }
 
-/*TABLET */
+/* TABLET */
 @media (min-width: 768px) {
     .card {
         max-width: 320px;
     }
 }
 
-/*DESKTOP */
+/* DESKTOP */
 @media (min-width: 1024px) {
     .hero {
         padding: 50px;
@@ -217,23 +303,3 @@ footer {
         gap: 20px;
     }
 }
-body.dark-mode {
-    background-color: #333333;
-    color: #f9f9f9;
-}
-body.dark-mode nav { background-color: #222222; }
-#theme-toggle { padding: 8px 16px; cursor: pointer; margin: 10px; }
-#typing-headline {
-    min-height: 80px;
-
-}
-.filter-btn {
-    padding: 8px 16px; margin: 5px;
-    border: 1px solid rgba(102, 166, 255, 0.95);
-    background: rgba(102, 166, 255, 0.6); color: white;
-    cursor: pointer; border-radius: 4px;
-}
-.filter-btn.active { background: rgba(102, 166, 255, 0.6); color: white; }
-.project-card { transition: all 0.3s; margin: 15px 0; padding: 15px;
-    border: 1px solid #ddd; border-radius: 8px; }
-.project-card.hidden { display: none; }
