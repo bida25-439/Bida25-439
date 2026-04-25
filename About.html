@@ -1,39 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>About</title>
-<link rel="stylesheet" href="Style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — Mindspace Hub</title>
+    <link rel="stylesheet" href="Style.css">
 </head>
 
 <body>
-<script src="Script.js"></script> 
 
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <span class="logo-text">Mindspace Hub</span>
 
-<nav>
-<a href="index.html">Home</a>
-<a href="About.html">About</a>
-<a href="resources.html">Resources</a>
-<a href="StudyTips.html">Study Tips</a>
-<a href="Feedback.html">Feedback</a>
-<a href="Contact.html">Contact</a>
-</nav>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="About.html">About</a>
+                <a href="resources.html">Resources</a>
+                <a href="StudyTips.html">Study Tips</a>
+                <a href="Feedback.html">Feedback</a>
+                <a href="Contact.html">Contact</a>
+            </div>
 
-<img src="Logo.png" class="logo">
+            <!-- Dark mode toggle -->
+            <button id="theme-toggle">Dark Mode</button>
 
-<div class="hero">
-<h1>About MINDSPACE</h1>
-<p>Purpose, vision and background</p>
-</div>
+            <!-- Mobile hamburger -->
+            <span class="menu-toggle" id="menu-toggle">&#9776;</span>
+        </div>
+    </nav>
 
-<div class="container">
-<div class="card"><h2>Purpose</h2><p>Aims to offer coping skills and strategies, and also how to balance life and study tips.</p></div>
-<div class="card"><h2>Vision</h2><p>To enable students to access helpful ways on how to manage stress, anxiety and academic pressure.</p></div>
-<div class="card"><h2>Background</h2><p>This website is developed to address mental health for students.</p></div>
-</div>
+    <!-- LOGO -->
+    <img src="Logo.png" class="logo" alt="Mindspace Hub Logo">
+
+    <!-- HERO -->
+    <div class="hero">
+        <h1>About MINDSPACE</h1>
+        <p>Purpose, vision and background</p>
+    </div>
+
+    <!-- CARDS -->
+    <div class="container">
+        <div class="card">
+            <h2>Purpose</h2>
+            <p>Aims to offer coping skills and strategies, and also how to balance life and study tips.</p>
+        </div>
+        <div class="card">
+            <h2>Vision</h2>
+            <p>To enable students to access helpful ways on how to manage stress, anxiety and academic pressure.</p>
+        </div>
+        <div class="card">
+            <h2>Background</h2>
+            <p>This website is developed to address mental health for students.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Mindspace Hub. All rights reserved.</p>
+    </footer>
+
+    <!-- ✅ Script goes at the BOTTOM so all elements exist when JS runs -->
+    <script src="Script.js"></script>
+
+    <!-- Mobile menu toggle -->
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+    </script>
 
 </body>
 </html>

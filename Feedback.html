@@ -1,39 +1,82 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Feedback</title>
-<link rel="stylesheet" href="Style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback — Mindspace Hub</title>
+    <link rel="stylesheet" href="Style.css">
 </head>
 
 <body>
-<script src="Script.js"></script>
- 
 
-<nav><a href="index.html">Home</a>
-<a href="About.html">About</a>
-<a href="resources.html">Resources</a>
-<a href="StudyTips.html">Study Tips</a>
-<a href="Feedback.html">Feedback</a>
-<a href="Contact.html">Contact</a>
-</nav>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <span class="logo-text">Mindspace Hub</span>
 
-<img src="Logo.png" class="logo">
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="About.html">About</a>
+                <a href="resources.html">Resources</a>
+                <a href="StudyTips.html">Study Tips</a>
+                <a href="Feedback.html">Feedback</a>
+                <a href="Contact.html">Contact</a>
+            </div>
 
-<div class="hero">
-<h1>Feedback</h1>
-<p>Share your thoughts</p>
-</div>
+            <button id="theme-toggle">Dark Mode</button>
+            <span class="menu-toggle" id="menu-toggle">&#9776;</span>
+        </div>
+    </nav>
 
-<div class="card">
-<form>
-<input type="text" placeholder="Your Name">
-<textarea placeholder="Your feedback"></textarea>
-<button>Submit</button>
-</form>
-</div>
+    <!-- LOGO -->
+    <img src="Logo.png" class="logo" alt="Mindspace Hub Logo">
+
+    <!-- HERO -->
+    <div class="hero">
+        <h1>Feedback</h1>
+        <p>Share your thoughts</p>
+    </div>
+
+    <!-- FEEDBACK FORM -->
+    <div class="container">
+        <div class="card" style="max-width: 500px; width: 100%;">
+            <h2 style="margin-bottom: 12px;">We'd love to hear from you</h2>
+            <form onsubmit="handleSubmit(event)">
+                <input type="text" id="feedback-name" placeholder="Your Name" required>
+                <input type="email" id="feedback-email" placeholder="Your Email (optional)">
+                <textarea id="feedback-message" placeholder="Your feedback..." rows="5" required></textarea>
+                <button type="submit" style="width: 100%; margin-top: 8px;">Submit</button>
+            </form>
+            <p id="feedback-thanks" style="display:none; margin-top: 14px; font-weight: 500;">
+                Thank you for your feedback! ✅
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Mindspace Hub. All rights reserved.</p>
+    </footer>
+
+    <!-- ✅ Script at the bottom so all elements exist when JS runs -->
+    <script src="Script.js"></script>
+
+    <script>
+        // Mobile menu
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+
+        // Form submission
+        function handleSubmit(e) {
+            e.preventDefault();
+            document.getElementById('feedback-thanks').style.display = 'block';
+            e.target.reset();
+        }
+    </script>
 
 </body>
 </html>

@@ -1,53 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-<title>Contact</title>
-<link rel="stylesheet" href="Style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — Mindspace Hub</title>
+    <link rel="stylesheet" href="Style.css">
 </head>
 
 <body>
-<script src="Script.js"></script> 
 
-<nav>
-<a href="index.html">Home</a>
-<a href="About.html">About</a>
-<a href="resources.html">Resources</a>
-<a href="StudyTips.html">Study Tips</a>
-<a href="Feedback.html">Feedback</a>
-<a href="Contact.html">Contact</a>
-</nav>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <span class="logo-text">Mindspace Hub</span>
 
-<img src="Logo.png" class="logo">
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="About.html">About</a>
+                <a href="resources.html">Resources</a>
+                <a href="StudyTips.html">Study Tips</a>
+                <a href="Feedback.html">Feedback</a>
+                <a href="Contact.html">Contact</a>
+            </div>
 
-<div class="hero">
-<h1>Contact & Help</h1>
-<p>External support and counseling services</p>
-</div>
+            <button id="theme-toggle">Dark Mode</button>
+            <span class="menu-toggle" id="menu-toggle">&#9776;</span>
+        </div>
+    </nav>
 
-<div class="container">
+    <!-- LOGO -->
+    <img src="Logo.png" class="logo" alt="Mindspace Hub Logo">
 
-  <a href="https://www.befrienders.org/" target="_blank" class="card">
-    <h2>Befrienders Worldwide</h2>
-    <p>Emotional support helplines around the world.</p>
-  </a>
+    <!-- HERO -->
+    <div class="hero">
+        <h1>Contact &amp; Help</h1>
+        <p>External support and counseling services</p>
+    </div>
 
-  <a href="https://findahelpline.com/" target="_blank" class="card">
-    <h2>Get Help</h2>
-    <p>Search for helplines in your country.</p>
-  </a>
+    <!-- SUPPORT LINK CARDS -->
+    <div class="container">
 
-  <a href="https://www.iasp.info/resources/Crisis_Centres/" target="_blank" class="card">
-    <h2>Crisis Centres</h2>
-    <p>Global crisis support services.</p>
-  </a>
+        <a href="https://www.befrienders.org/" target="_blank" rel="noopener noreferrer" class="card">
+            <h2>Befrienders Worldwide</h2>
+            <p>Emotional support helplines around the world.</p>
+        </a>
 
-</div>
+        <a href="https://findahelpline.com/" target="_blank" rel="noopener noreferrer" class="card">
+            <h2>Get Help</h2>
+            <p>Search for helplines in your country.</p>
+        </a>
 
+        <a href="https://www.iasp.info/resources/Crisis_Centres/" target="_blank" rel="noopener noreferrer" class="card">
+            <h2>Crisis Centres</h2>
+            <p>Global crisis support services.</p>
+        </a>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Mindspace Hub. All rights reserved.</p>
+    </footer>
+
+    <!-- ✅ Script at the bottom so all elements exist when JS runs -->
+    <script src="Script.js"></script>
+
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+    </script>
 
 </body>
 </html>

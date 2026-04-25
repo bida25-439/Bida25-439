@@ -1,50 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Study Tips</title>
-<link rel="stylesheet" href="Style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Tips — Mindspace Hub</title>
+    <link rel="stylesheet" href="Style.css">
 </head>
 
 <body>
-<script src="Script.js"></script> 
 
-<nav>
-<a href="index.html">Home</a>
-<a href="About.html">About</a>
-<a href="resources.html">Resources</a>
-<a href="StudyTips.html">Study Tips</a>
-<a href="Feedback.html">Feedback</a>
-<a href="Contact.html">Contact</a>
-</nav>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <span class="logo-text">Mindspace Hub</span>
 
-<img src="Logo.png" class="logo">
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="About.html">About</a>
+                <a href="resources.html">Resources</a>
+                <a href="StudyTips.html">Study Tips</a>
+                <a href="Feedback.html">Feedback</a>
+                <a href="Contact.html">Contact</a>
+            </div>
 
-<div class="hero">
-<h1>Study Tips</h1>
-<p>Ways to reduce academic pressure</p>
-</div>
+            <button id="theme-toggle">Dark Mode</button>
+            <span class="menu-toggle" id="menu-toggle">&#9776;</span>
+        </div>
+    </nav>
 
-<div class="container">
-  <a href="Planning.jpg" target="_blank" class="card">
-    <h2>Planning</h2>
-    <p>Be organized.</p>
-  </a>
+    <!-- LOGO -->
+    <img src="Logo.png" class="logo" alt="Mindspace Hub Logo">
 
-  <a href="Breaks.jpg" target="_blank" class="card">
-    <h2>Breaks</h2>
-    <p>Take regular breaks to avoid burnout.</p>
-  </a>
+    <!-- HERO -->
+    <div class="hero">
+        <h1>Study Tips</h1>
+        <p>Ways to reduce academic pressure</p>
+    </div>
 
-  <a href="Focus.png" target="_blank" class="card">
-    <h2>Focus</h2>
-    <p>Avoid distractions.</p>
-  </a>
+    <!-- TIP CARDS -->
+    <!-- ✅ FIX: cards now show the image inside, not link TO the image -->
+    <div class="container">
 
-</div>
+        <div class="card">
+            <img src="Planning.jpg" alt="Planning" style="width:100%; border-radius: 10px; margin-bottom: 12px;">
+            <h2>Planning</h2>
+            <p>Be organized. Use a planner or calendar to break big tasks into smaller, manageable steps.</p>
+        </div>
+
+        <div class="card">
+            <img src="Breaks.jpg" alt="Taking Breaks" style="width:100%; border-radius: 10px; margin-bottom: 12px;">
+            <h2>Breaks</h2>
+            <p>Take regular breaks to avoid burnout. Try the Pomodoro method — 25 minutes on, 5 minutes off.</p>
+        </div>
+
+        <div class="card">
+            <img src="Focus.png" alt="Focus" style="width:100%; border-radius: 10px; margin-bottom: 12px;">
+            <h2>Focus</h2>
+            <p>Avoid distractions. Put your phone away and find a quiet space to study effectively.</p>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Mindspace Hub. All rights reserved.</p>
+    </footer>
+
+    <!-- ✅ Script at the bottom so all elements exist when JS runs -->
+    <script src="Script.js"></script>
+
+    <script>
+        // Mobile menu
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+    </script>
 
 </body>
 </html>
