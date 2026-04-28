@@ -9,7 +9,7 @@
 
 <body>
 
-<!-- MENU -->
+
 <nav>
 <a href="index.html">Home</a>
 <a href="About.html">About</a>
@@ -20,16 +20,15 @@
 <button id="theme-toggle">Dark Mode</button>  
 </nav>
 
-<!-- LOGO -->
-<img src="Logo (2).png" class="logo">
 
-<!-- HERO -->
+<img src="Logo.png" class="logo">
+
+
 <div class="hero">
 <h1 id="typing-headline">MINDSPACE STUDENT HUB</h1>
 <p>Welcome to Student Mental Health Awareness, where you are heard and understood</p>
 </div>
 
-<!-- CARDS -->
 <div class="container">
 <div class="card"><h2>Overview</h2><p>This website helps students manage mental health.</p></div>
 <div class="card"><h2>Explore</h2><p>Learn about mental health from resources, get study tips, and coping strategies.</p></div>
@@ -37,20 +36,27 @@
 </div>
 
 
-<!-- PROJECT CARD (FIXED) -->
 <article class="project-card" data-category="bootstrap">
 <h3>Support Resources</h3>
 <p>Helpful student mental health content.</p>
 </article>
 
-<!-- BACK TO TOP -->
 <button id="back-to-top">↑</button>
 
-<!-- FOOTER -->
-<footer>© Peo Dejee 2026 MindSpace Student Hub</footer>
+<footer>Peo Dejee 2026 MindSpace Student Hub</footer>
 
-<!-- ✅ JAVASCRIPT GOES HERE (MOVED DOWN) -->
+
 <script src="Script.js"></script>
+
+<script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+    </script>
 
 </body>
 </html>
