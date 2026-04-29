@@ -1,11 +1,10 @@
-/* GLOBAL */
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* BODY */
 body {
     font-family: 'Segoe UI', sans-serif;
     background: linear-gradient(120deg, #89f7fe, #66a6ff);
@@ -13,13 +12,13 @@ body {
     transition: background 0.3s, color 0.3s;
 }
 
-/* ✅ UNIFIED DARK MODE — one class for everything */
+
 body.dark-mode {
     background: linear-gradient(120deg, #1e1e2f, #121212);
     color: #f1f1f1;
 }
 
-/* NAVBAR */
+
 .navbar {
     position: sticky;
     top: 0;
@@ -34,7 +33,7 @@ body.dark-mode .navbar {
     background: rgba(20, 20, 30, 0.8);
 }
 
-/* NAV CONTAINER */
+
 .nav-container {
     display: flex;
     justify-content: space-between;
@@ -42,13 +41,13 @@ body.dark-mode .navbar {
     padding: 15px 20px;
 }
 
-/* LOGO TEXT */
+
 .logo-text {
     font-size: 20px;
     font-weight: bold;
 }
 
-/* NAV LINKS */
+
 .nav-links {
     display: flex;
     gap: 20px;
@@ -61,7 +60,7 @@ body.dark-mode .navbar {
     position: relative;
 }
 
-/* HOVER UNDERLINE */
+
 .nav-links a::after {
     content: "";
     position: absolute;
@@ -76,22 +75,20 @@ body.dark-mode .navbar {
 .nav-links a:hover::after {
     width: 100%;
 }
-
-/* MENU ICON */
 .menu-toggle {
     display: none;
     font-size: 26px;
     cursor: pointer;
 }
 
-/* DARK MODE BUTTON */
+
 .dark-toggle {
     font-size: 20px;
     cursor: pointer;
     margin-left: 10px;
 }
 
-/* HERO */
+
 .hero {
     text-align: center;
     padding: 30px 20px;
@@ -106,7 +103,7 @@ body.dark-mode .navbar {
     opacity: 0.9;
 }
 
-/* LOGO IMAGE */
+
 .logo {
     display: block;
     margin: 20px auto;
@@ -114,7 +111,7 @@ body.dark-mode .navbar {
     max-width: 100%;
 }
 
-/* CONTAINER */
+
 .container {
     display: flex;
     flex-wrap: wrap;
@@ -125,7 +122,7 @@ body.dark-mode .navbar {
     margin: auto;
 }
 
-/* CARDS */
+
 .card {
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
@@ -145,7 +142,7 @@ body.dark-mode .card {
     transform: translateY(-5px);
 }
 
-/* FORM */
+
 input, textarea {
     width: 100%;
     padding: 10px;
@@ -168,7 +165,7 @@ button {
     cursor: pointer;
 }
 
-/* FOOTER */
+
 footer {
     text-align: center;
     padding: 20px;
@@ -179,7 +176,7 @@ body.dark-mode footer {
     color: #ccc;
 }
 
-/* THEME TOGGLE BUTTON */
+
 #theme-toggle {
     padding: 8px 16px;
     cursor: pointer;
@@ -198,12 +195,12 @@ body.dark-mode #theme-toggle {
     color: #f1f1f1;
 }
 
-/* TYPING HEADLINE */
+
 #typing-headline {
     min-height: 80px;
 }
 
-/* FILTER BUTTONS */
+
 .filter-btn {
     padding: 8px 16px;
     margin: 5px;
@@ -232,7 +229,7 @@ body.dark-mode .filter-btn:hover {
     background: rgba(100, 100, 200, 0.5);
 }
 
-/* PROJECT CARDS */
+
 .project-card {
     transition: all 0.3s;
     margin: 15px 0;
@@ -252,7 +249,7 @@ body.dark-mode .project-card {
     display: none;
 }
 
-/* MOBILE */
+
 @media (max-width: 768px) {
 
     .menu-toggle {
@@ -286,14 +283,14 @@ body.dark-mode .project-card {
     }
 }
 
-/* TABLET */
+
 @media (min-width: 768px) {
     .card {
         max-width: 320px;
     }
 }
 
-/* DESKTOP */
+
 @media (min-width: 1024px) {
     .hero {
         padding: 50px;
