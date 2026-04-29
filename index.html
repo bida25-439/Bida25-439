@@ -9,54 +9,56 @@
 
 <body>
 
-
-<nav>
-<a href="index.html">Home</a>
-<a href="About.html">About</a>
-<a href="resources.html">Resources</a>
-<a href="StudyTips.html">Study Tips</a>
-<a href="Feedback.html">Feedback</a>
-<a href="Contact.html">Contact</a>
-<button id="theme-toggle">Dark Mode</button>  
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="logo-text">Mindspace Hub</div>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="About.html">About</a>
+      <a href="resources.html">Resources</a>
+      <a href="StudyTips.html">Study Tips</a>
+      <a href="Feedback.html">Feedback</a>
+      <a href="Contact.html">Contact</a>
+    </div>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <span class="menu-toggle" id="menu-toggle">&#9776;</span>
+      <button id="theme-toggle">Dark Mode</button>
+    </div>
+  </div>
 </nav>
-
 
 <img src="Logo.png" class="logo">
 
-
 <div class="hero">
-<h1 id="typing-headline">MINDSPACE STUDENT HUB</h1>
-<p>Welcome to Student Mental Health Awareness, where you are heard and understood</p>
+  <h1 id="typing-headline">Welcome to Mindspace</h1>
+  <p>Welcome to Student Mental Health Awareness, where you are heard and understood</p>
 </div>
 
 <div class="container">
-<div class="card"><h2>Overview</h2><p>This website helps students manage mental health.</p></div>
-<div class="card"><h2>Explore</h2><p>Learn about mental health from resources, get study tips, and coping strategies.</p></div>
-<div class="card"><h2>Support</h2><p>Find help and guidance you need when facing challenges.</p></div>
+  <div class="card"><h2>Overview</h2><p>This website helps students manage mental health.</p></div>
+  <div class="card"><h2>Explore</h2><p>Learn about mental health from resources, get study tips, and coping strategies.</p></div>
+  <div class="card"><h2>Support</h2><p>Find help and guidance you need when facing challenges.</p></div>
 </div>
 
-
 <article class="project-card" data-category="bootstrap">
-<h3>Support Resources</h3>
-<p>Helpful student mental health content.</p>
+  <h3>Support Resources</h3>
+  <p>Helpful student mental health content.</p>
 </article>
 
-<button id="back-to-top">↑</button>
+
 
 <footer>Peo Dejee 2026 MindSpace Student Hub</footer>
 
-
 <script src="Script.js"></script>
-
 <script>
-        const menuToggle = document.getElementById('menu-toggle');
-        const navLinks = document.getElementById('nav-links');
-        if (menuToggle) {
-            menuToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-            });
-        }
-    </script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+  if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  }
+</script>
 
 </body>
 </html>
