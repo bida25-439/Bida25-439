@@ -1,5 +1,5 @@
-console.log("JavaScript is connected!"); 
-//  DARK MODE TOGGLE
++-console.log("JavaScript is connected!"); 
+
 const toggleButton = document.getElementById('theme-toggle');
 
 if (toggleButton) {
@@ -16,7 +16,7 @@ if (toggleButton) {
         }
     });
 
-    //  REMEMBER THEME ON PAGE LOAD
+     
     if (localStorage.getItem('theme') === 'dark') {
         document.body.classList.add('dark-mode');
         toggleButton.textContent = 'Light Mode';
@@ -24,7 +24,6 @@ if (toggleButton) {
 }
 
 
-//  TYPING EFFECT
 const typingElement = document.getElementById('typing-headline');
 
 if (typingElement) {
@@ -65,7 +64,7 @@ if (typingElement) {
 }
 
 
-// ⬆️ BACK TO TOP BUTTON
+
 const backToTopButton = document.getElementById('back-to-top');
 
 if (backToTopButton) {
@@ -79,7 +78,7 @@ if (backToTopButton) {
 }
 
 
-// FILTER PROJECTS / RESOURCES
+
 const filterButtons = document.querySelectorAll('.filter-btn');
 const projects = document.querySelectorAll('.project-card');
 
