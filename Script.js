@@ -4,7 +4,6 @@ const toggleButton = document.getElementById('theme-toggle');
 
 if (toggleButton) {
     toggleButton.addEventListener('click', function () {
-        // FIX: toggle once, then read the result — don't toggle twice
         const isDark = document.body.classList.toggle('dark-mode');
 
         if (isDark) {
@@ -86,7 +85,7 @@ if (filterButtons.length > 0 && projects.length > 0) {
     filterButtons.forEach(button => {
         button.addEventListener('click', function () {
 
-            // Update active button style
+    
             filterButtons.forEach(btn => btn.classList.remove('active'));
             this.classList.add('active');
 
